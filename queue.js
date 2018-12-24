@@ -23,6 +23,10 @@ class Queue {
             }
     }
 
+    peek(){
+        return this.q[this.counter-1];
+    }
+
 
 }
 
@@ -40,11 +44,15 @@ dequeue(){
     this.data.pop();
 }
 
+peek(){
+
+     return this.data[this.data.length - 1];
+
 }
 
-var q = new queue();
-q.enqueue("A");
-q.enqueue("B");
-q.enqueue("C");
-q.dequeue();
-console.log(q);
+}
+
+module.exports = {
+    queue,
+    Queue
+}
