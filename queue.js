@@ -37,11 +37,11 @@ constructor(){
 }
 
 enqueue(num){
-    this.data.unshift(num);
+   return this.data.unshift(num);
 }
 
 dequeue(){
-    this.data.pop();
+    return this.data.pop();
 }
 
 peek(){
