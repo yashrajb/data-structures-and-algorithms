@@ -2,16 +2,15 @@ var Stack = function(capac) {
 	this.capacity = (typeof capac==="number")? capac : Infinity;
 	this.storage = {};
 	this.count = 0;
-	console.log(this.capacity);
 }
 
 
 Stack.prototype.push = function(value) {
 	if(this.count < this.capacity){
 		this.storage[this.count++] = value;
-		console.log(this.storage);
+		return this.storage;
 	}else {
-		console.log("stack overflow");
+		return "stack overflow";
 	}
 }
 
@@ -19,22 +18,28 @@ Stack.prototype.push = function(value) {
 Stack.prototype.pop = function(){
 	if(this.count!==0){
 		this.count =  this.count - 1;
+		var temp = this.storage[this.count];
 		delete this.storage[this.count];
-		console.log(this.storage);
+		return temp;
 	}else {
-		console.log("Stack is underflow");
+		return "Stack is underflow";
 	}
 }
 
+Stack.prototype.peek = function(){
+	return this.storage[this.count-1];
+}
+
 Stack.prototype.size = function(){
-	console.log(this.count);
+	return this.count;
 }
 
 
+module.exports = {
+	Stack
+}
 var st = new Stack(2);
 st.push("hello");
 st.push("hi");
 st.push("haahaha");
 st.push("damn");
-st.pop();
-st.size();
